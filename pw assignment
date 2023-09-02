@@ -1,0 +1,86 @@
+Feature Engineering-6Assignment Questions 
+Assignment 
+Q1. Pearson correlation coefficient is a measure of the linear relationship between two variables. Suppose  you have collected data on the amount of time students spend studying for an exam and their final exam  scores. Calculate the Pearson correlation coefficient between these two variables and interpret the result. 
+import pandas as pd
+data = {
+    'Studying Time': [2, 3, 1, 4, 5, 2, 3, 1, 4, 5],
+    'Final Exam Score': [70, 75, 60, 85, 90, 72, 78, 58, 82, 88],}
+
+df=pd.DataFrame(data)
+correlation=df['Studying Time'].corr(df['Final Exam Score'])
+print(f'correlation between time of studing and final exam score is:{correlation}')
+
+Q2. Spearman's rank correlation is a measure of the monotonic relationship between two variables.  Suppose you have collected data on the amount of sleep individuals get each night and their overall job  satisfaction level on a scale of 1 to 10. Calculate the Spearman's rank correlation between these two  variables and interpret the result. 
+data1 = {
+    'Sleep Hours': [6, 7, 5, 8, 7, 6, 5, 9, 8, 7],
+    'Job Satisfaction': [7, 8, 4, 9, 8, 6, 5, 9, 9, 8],
+}
+
+df=pd.DataFrame(data1)
+correlation1=df['Sleep Hours'].corr(df['Job Satisfaction'],method='spearman')
+print(f'correlation between time of studing and final exam score is:{correlation1}')
+
+Q3. Suppose you are conducting a study to examine the relationship between the number of hours of  exercise per week and body mass index (BMI) in a sample of adults. You collected data on both variables  for 50 participants. Calculate the Pearson correlation coefficient and the Spearman's rank correlation  between these two variables and compare the results. 
+
+
+data2 = {
+    'kasrat': [ 5, 2, 4, 6, 1, 3, 4, 5, 2, 5, 1, 2, 3, 4, 5, 6, 3, 2, 4, 5, 1, 2, 3, 4, 5, 3, 4, 2, 5, 1, 3, 4, 5, 2, 6, 3, 4, 2, 5, 1, 2, 3, 4, 5, 3, 2],
+    'BMI': [ 22.1, 26.8, 30.2, 20.4, 24.0, 27.2, 29.1, 21.5, 28.7, 19.8, 21.9, 24.8, 27.0, 30.5, 31.8, 25.4, 22.5, 27.1, 29.6, 19.5, 21.3, 24.2, 27.7, 30.3, 24.1, 26.9, 22.3, 29.4, 20.1, 24.9, 28.1, 30.8, 21.7, 31.3, 24.6, 27.5, 22.9, 20.7, 22.0, 25.1, 28.0, 30.1, 23.8, 21.6, 24.3, 26.5],
+}
+print(f'Length of "kasrat" list: {len(data2["kasrat"])}')
+print(f'Length of "BMI" list: {len(data2["BMI"])}')
+
+df = pd.DataFrame(data2)
+corr=df['kasrat'].corr(df["BMI"],method='pearson')
+print(f'correlation between exercise hours per week and BMi through karl perarsons method is:{corr}')
+
+corr1=df['kasrat'].corr(df['BMI'],method='spearman')
+print(f'the correlation between exercise hours per week and BMi through spearman method is:{corr1}' )
+
+Q4. A researcher is interested in examining the relationship between the number of hours individuals  spend watching television per day and their level of physical activity. The researcher collected data on  both variables from a sample of 50 participants. Calculate the Pearson correlation coefficient between  these two variables. 
+data3 = {
+    'Hours': [2.5, 3.0, 1.5, 4.0, 2.0,4.0,4.0,2.0, 3.5, 2.0, 1.0, 3.0, 4.5, 2.5, 3.0, 1.0, 2.0, 4.0, 3.5, 2.0, 1.5, 2.5, 3.0, 4.0, 1.5, 2.0, 3.5, 4.5, 2.5, 3.0, 1.0, 2.0, 4.0, 3.5, 2.0, 1.5, 2.5, 3.0, 4.0, 2.5, 3.0, 1.0, 2.0, 4.0, 3.5, 2.0, 1.5, 2.5, 3.0, 4.5],
+    'Physical Activity Level': [3,3,4,5, 4, 2, 5, 3, 4, 3, 2, 4, 5, 3, 4, 2, 3, 5, 4, 3, 2, 3, 4, 5, 2, 3, 4, 5, 3, 4, 2, 3, 5, 4, 3, 2, 3, 4, 5, 3, 4, 2, 3, 5, 4, 3, 2, 3, 4, 5],
+}
+print(f'length of hours:{len(data3["Hours"])}')
+print(f'length of hours:{len(data3["Physical Activity Level"])}')
+
+df=pd.DataFrame(data3)
+
+
+
+corr3=df['Hours'].corr(df['Physical Activity Level'],method='pearson')
+print(f'correlation between hours and physical activity level through karl perarsons method is:{corr3}')
+
+Q5. A survey was conducted to examine the relationship between age and preference for a particular  brand of soft drink. The survey results are shown below: 
+
+Age(Years) 
+Soft drink Preference
+
+25 Coke 42 Pepsi 
+
+37 19 31 28 
+Mountain dew Coke 
+Pepsi 
+Coke 
+
+Q6. A company is interested in examining the relationship between the number of sales calls made per day  and the number of sales made per week. The company collected data on both variables from a sample of  30 sales representatives. Calculate the Pearson correlation coefficient between these two variables. 
+import pandas as pd
+
+
+data = {
+    'Sales Calls per Day': [10, 8, 12, 15, 9, 11, 14, 13, 9, 12, 16, 17, 10, 8, 11, 15, 12, 9, 14, 16, 18, 13, 10, 8, 12, 15, 9, 11, 14, 13],
+    'Sales per Week': [40, 32, 48, 55, 38, 45, 52, 51, 39, 47, 58, 60, 42, 34, 44, 54, 49, 41, 52, 59, 62, 50, 45, 33, 47, 56, 40, 43, 53, 50]
+}
+
+
+df = pd.DataFrame(data)
+
+
+corr_coefficient = df['Sales Calls per Day'].corr(df['Sales per Week'], method='pearson')
+
+print(f"Pearson Correlation Coefficient between Sales Calls per Day and Sales per Week: {corr_coefficient}")
+
+
+Note:  Create your assignment in Jupyter notebook and upload it to GitHub & share that github repository  link through your dashboard. Make sure the repository is public. 
+Data Science Masters 
